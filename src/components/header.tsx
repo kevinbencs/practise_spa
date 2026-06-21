@@ -4,18 +4,20 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Search from "./search";
+import { useUser } from "./userContext";
 
 
 
 
 const Header = () => {
+  const { name } = useUser()
   const [check, setCheck] = useState<boolean>(false)
   const [searchVisible, setSearchVisible] = useState<boolean>(false)
 
 
   const searchClick = () => {
-    if(searchVisible) document.body.style.overflow = "hidden";
-    else {document.body.style.overflow = ""};
+    if (searchVisible) document.body.style.overflow = "hidden";
+    else { document.body.style.overflow = "" };
     setSearchVisible(() => !searchVisible)
   }
 
@@ -30,12 +32,17 @@ const Header = () => {
 
       <section className="flex gap-5 items-start">
         <button className="p-2 cursor-pointer" onClick={searchClick}><FaSearch /></button>
-        <Link to="/login" className="p-2">Log in</Link>
-        <Link to="/signup" className="p-2">Sign up</Link>
-        <Link to="/dashboard" className="p-2">Dashboard</Link>
+        {!name && <>
+          <Link to="/login" className="p-2">Log in</Link>
+          <Link to="/signup" className="p-2">Sign up</Link>
+        </>
+        }
+
+        {name && <Link to="/dashboard" className="p-2">{name}</Link>}
+
 
       </section>
-      {searchVisible && <Search handleClick={searchClick}/>}
+      {searchVisible && <Search handleClick={searchClick} />}
     </header>
   )
 }
