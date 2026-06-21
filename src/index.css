@@ -17,9 +17,14 @@
 
 }
 
+#menu-checkbox:checked ~ .mobil-menu-container{
+  display: block;
+}
+
 
 #menu-checkbox:checked ~ .mobil-menu{
   left: 0;
 }
+
 
 
