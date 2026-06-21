@@ -7,24 +7,25 @@ import Search from './pages/search'
 import Category from './pages/category'
 import Drink from './pages/drink'
 import NotFound from './pages/notFound'
+import { UserContext } from './components/userContext'
 
 
 function App() {
 
   return (
-    <>
+    <UserContext>
       <Header />
       <main>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='/category' element={<Category />} />
-            <Route path='/drink' element={<Drink />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/category' element={<Category />} />
+          <Route path='/drink' element={<Drink />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </UserContext>
   )
 }
 
