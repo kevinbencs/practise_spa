@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router'
 import Header from './components/header'
 import Footer from './components/footer'
 import Home from './pages/home'
@@ -15,7 +15,6 @@ function App() {
     <>
       <Header />
       <main>
-        <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/search' element={<Search />} />
@@ -23,7 +22,6 @@ function App() {
             <Route path='/drink' element={<Drink />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
       </main>
       <Footer />
     </>

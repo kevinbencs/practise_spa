@@ -1,0 +1,27 @@
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import { Link } from "react-router";
+
+
+const Menu = () => {
+    return (
+        <div className=" -left-62 fixed z-10 w-62 top-0 mobil-menu duration-500 min-h-screen bg-mist-800 p-2 lg:static lg:z-0 lg:w-auto lg:min-h-auto lg:bg-transparent lg:p-0">
+            <div className="text-end lg:hidden">
+                <button className="p-2 cursor-pointer ">
+                    <label htmlFor="menu-checkbox">
+                        <IoMdCloseCircleOutline size={30} />
+                    </label>
+                </button>
+            </div>
+
+            <section className=" list-none p-4 lg:p-0 lg:flex gap-5">
+                <Link to="/" className="lg:hidden">Home</Link>
+                <li>Kell</li>
+                <li>Kell</li>
+                <li>Kell</li>
+            </section>
+        </div>
+
+    )
+}
+
+export default Menu
