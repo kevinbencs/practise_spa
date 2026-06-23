@@ -8,24 +8,31 @@ import Category from './pages/category'
 import Drink from './pages/drink'
 import NotFound from './pages/notFound'
 import { UserContext } from './components/userContext'
+import Dashboard from './pages/dashboard'
+import NewPassword from './pages/newPassword'
+import Login from './pages/login'
+import Signup from './pages/signup'
+import Layout from './components/layout'
 
 
 function App() {
 
   return (
-    <UserContext>
-      <Header />
+    <Layout>
       <main>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/search' element={<Search />} />
           <Route path='/category' element={<Category />} />
           <Route path='/drink' element={<Drink />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard/newpassword' element={<NewPassword />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </main>
-      <Footer />
-    </UserContext>
+    </Layout>
   )
 }
 
