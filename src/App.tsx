@@ -1,13 +1,10 @@
 
 import { Route, Routes } from 'react-router'
-import Header from './components/header'
-import Footer from './components/footer'
 import Home from './pages/home'
 import Search from './pages/search'
 import Category from './pages/category'
 import Drink from './pages/drink'
 import NotFound from './pages/notFound'
-import { UserContext } from './components/userContext'
 import Dashboard from './pages/dashboard'
 import NewPassword from './pages/newPassword'
 import Login from './pages/login'
