@@ -3,7 +3,9 @@ import { createContext, useContext, type ReactNode, useState, useEffect } from "
 
 type User = {
     name: string,
-    setName: (val: string) => void
+    setName: (val: string) => void,
+    token: string,
+    setToken: (val: string) => void
 }
 
 
@@ -12,6 +14,7 @@ const userContext = createContext<User | undefined>(undefined)
 
 export const UserContext = ({ children }: { children: ReactNode }) => {
     const [name, setName] = useState<string>('')
+    const [token, setToken] = useState<string>('')
 
     useEffect(() => {
         (async () => {
@@ -33,7 +36,7 @@ export const UserContext = ({ children }: { children: ReactNode }) => {
 
     }, [])
     return (
-        <userContext.Provider value={{ name, setName }}>
+        <userContext.Provider value={{ name, setName, token, setToken }}>
             {children}
         </userContext.Provider>
     )
