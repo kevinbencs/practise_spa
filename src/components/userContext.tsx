@@ -1,4 +1,4 @@
-import { createContext, useContext, type ReactNode, useState, useEffect } from "react"
+import { createContext, useContext, type ReactNode, useState, useEffect, useLayoutEffect } from "react"
 
 
 type User = {
@@ -24,6 +24,7 @@ export const UserContext = ({ children }: { children: ReactNode }) => {
                 const data = await res.json()
 
                 if(data.name) setName(data.name)
+                if(data.token) setToken(data.token)
 
                 else{
                     console.log(data.error)
@@ -35,6 +36,13 @@ export const UserContext = ({ children }: { children: ReactNode }) => {
         })()
 
     }, [])
+
+    useLayoutEffect(() => {},[token])
+
+    useLayoutEffect(() => {
+
+    },[])
+
     return (
         <userContext.Provider value={{ name, setName, token, setToken }}>
             {children}
